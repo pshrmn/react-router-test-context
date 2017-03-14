@@ -1,0 +1,39 @@
+{
+  "name": "react-router-test-context",
+  "version": "0.1.0",
+  "description": "Create a pseudo context to assist in testing components that render React Router's location-aware components.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "LICENSE",
+    "*.md"
+  ],
+  "scripts": {
+    "build": "babel ./src -o index.js --ignore __tests__",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pshrmn/react-router-test-context.git"
+  },
+  "keywords": [
+    "React",
+    "React",
+    "Router",
+    "unit",
+    "test"
+  ],
+  "author": "Paul Sherman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pshrmn/react-router-test-context/issues"
+  },
+  "homepage": "https://github.com/pshrmn/react-router-test-context#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015": "^6.24.0",
+    "jest": "^19.0.2"
+  }
+}
