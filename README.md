@@ -2,6 +2,12 @@
 
 Create a pseudo `context` object that duplicates React Router's `context.router` structure. This is useful for shallow unit testing with Enzyme.
 
+### Installation
+
+```
+npm install --save-dev react-router-test-context
+```
+
 ### Usage
 
 ```js
