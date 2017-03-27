@@ -22,6 +22,27 @@ describe('my test', () => {
   })
 })
 ```
+
+If your root component is not a native React Router component (`<Switch>`, `<Route>`), you may run into issues with unfound context properties. To deal with this, you should just define a `contextTypes` on that component within the test.
+
+```js
+import MyComponent from '../component/MyComponent'
+
+describe('my component', () => {
+
+  // ADD THIS
+  MyComponent.contextTypes = {
+    router: React.PropTypes.object
+  }
+
+  it('renders', () => {
+    const context = createRouterContext()
+    const wrapper = mount(<MyComponent />, { context })
+    // ...
+  })
+}
+```
+
 #### Limitations of Shallow Renders
 
 If you are using this to test that a `<Switch>` is matching as expected, a shallow render will probably not work as expected.
