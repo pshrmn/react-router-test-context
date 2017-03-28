@@ -23,7 +23,15 @@ describe('my test', () => {
 })
 ```
 
-If your root component is not a native React Router component (`<Switch>`, `<Route>`), you may run into issues with unfound context properties. To deal with this, you should just define a `contextTypes` on that component within the test.
+### enzyme
+
+There are a few things that you should be aware of if you plan to use `react-router-test-context` with `enzyme` to test your location-aware components.
+
+#### `mount`
+
+If your root component is not a native React Router component (`<Switch>`, `<Route>`), you may run into issues with unfound context properties. To deal with this, you have two options.
+
+1. Define a `contextTypes` on the root component.
 
 ```js
 import MyComponent from '../component/MyComponent'
@@ -43,7 +51,23 @@ describe('my component', () => {
 }
 ```
 
-#### Limitations of Shallow Renders
+2. Pass a `childContextTypes` object to enzyme via the `options` object.
+
+```js
+describe('my component', () => {
+  // ...
+  
+  it('renders', () => {
+    const context = createRouterContext()
+    const childContextTypes = {
+      router: React.PropTypes.object
+    }
+    cosnt wrapper = mount(<MyComponent />, { context, childContextTypes })
+    // ...
+})
+```
+
+#### Limitations of `shallow` Renders
 
 If you are using this to test that a `<Switch>` is matching as expected, a shallow render will probably not work as expected.
 
