@@ -64,7 +64,7 @@ describe('my component', () => {
     const childContextTypes = {
       router: React.PropTypes.object
     }
-    cosnt wrapper = mount(<MyComponent />, { context, childContextTypes })
+    const wrapper = mount(<MyComponent />, { context, childContextTypes })
     // ...
 })
 ```
